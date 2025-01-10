@@ -13,7 +13,7 @@ import java.util.Map;
 //@CrossOrigin(origins = "http://localhost:8081", maxAge = 3600, allowCredentials="true")
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/test")
+@RequestMapping("/test")
 public class TestController {
     @GetMapping("/all")
     public String allAccess() {
