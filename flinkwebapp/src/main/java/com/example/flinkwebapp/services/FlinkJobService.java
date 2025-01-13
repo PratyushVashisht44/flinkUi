@@ -5,8 +5,12 @@ import com.example.flinkwebapp.repository.FlinkJobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+import java.util.logging.Logger;
+
 @Service
 public class FlinkJobService {
+    private static final Logger logger = Logger.getLogger(FlinkJobService.class.getName());
 
     @Autowired
     private FlinkJobRepository flinkJobRepository;
@@ -28,4 +32,19 @@ public class FlinkJobService {
 
         return "Job saved successfully!";
     }
+
+    public Optional<FlinkJobs> getFlinkJobByName(String jobName) {
+        logger.info("Fetching job with name: " + jobName);
+
+        Optional<FlinkJobs> flinkJob = flinkJobRepository.findByJobName(jobName);
+
+        if (flinkJob.isPresent()) {
+            logger.info("Flink job found: " + jobName);
+        } else {
+            logger.warning("Flink job not found: " + jobName);
+        }
+
+        return flinkJob;
+    }
+
 }

@@ -10,4 +10,4 @@ public class FlinkwebappApplication {
 		SpringApplication.run(FlinkwebappApplication.class, args);
 	}
 
-}
+};

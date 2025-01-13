@@ -44,4 +44,4 @@ public class FlinkJobs {
     public void setConfigurations(Map<String, String> configurations) {
         this.configurations = configurations;
     }
-}
+};
